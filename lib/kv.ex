@@ -9,7 +9,7 @@ defmodule KV do
   ## Examples
 
       iex> KV.hello()
-      :world
+      "I am the Goddess, I am divine"
 
   """
   def hello do

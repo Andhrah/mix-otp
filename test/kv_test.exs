@@ -3,6 +3,6 @@ defmodule KVTest do
   doctest KV
 
   test "greets the world" do
-    assert KV.hello() == :world
+    assert KV.hello() == "I am the Goddess, I am divine"
   end
 end

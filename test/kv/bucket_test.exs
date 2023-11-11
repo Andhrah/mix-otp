@@ -2,8 +2,8 @@ defmodule KV.BucketTest do
   use ExUnit.Case, async: true
 
   setup do
-    {:ok, bucket} = KV.Bucket.start_link([])
-    %{bucket: bucket}
+    {:ok, buckets} = KV.Bucket.start_link([])
+    %{bucket: buckets}
   end
 
   test "store values by key", %{bucket: bucket} do

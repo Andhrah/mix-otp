@@ -1,6 +1,29 @@
 defmodule KV.Registry do
   use GenServer
-  ## Missing client API - will add this later
+  ## client API
+
+  @doc """
+  Starts the registry.
+  """
+  def start_link(opts) do
+    GenServer.start_link(__MODULE__, :ok, opts)
+  end
+
+  @doc """
+  Looks up the bucket pid for the `name` stored in the `server`.
+
+  Returns `{:ok, pid}` if the bucket exist, `:error` otherwise.
+  """
+  def lookup(server, name) do
+    GenServer.call(server, {:lookup, name})
+  end
+
+  @doc """
+  Ensures there is a bucket associated with the given `name` in `server`.
+  """
+  def create(server, name) do
+    GenServer.cast(server, {:create, name})
+  end
 
   ## Defining Genserver callbacks
   @impl true
